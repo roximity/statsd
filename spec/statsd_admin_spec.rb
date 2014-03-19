@@ -1,12 +1,12 @@
 require 'helper'
 
-describe Statsd::Admin do
-  class Statsd::Admin
+describe Statsd::StatsdAdmin do
+  class Statsd::StatsdAdmin
     public :socket
   end
 
   before do
-    @admin = Statsd::Admin.new('localhost', 1234)
+    @admin = Statsd::StatsdAdmin.new('localhost', 1234)
     @socket = Thread.current[:statsd_admin_socket] = FakeTCPSocket.new
   end
 
@@ -19,7 +19,7 @@ describe Statsd::Admin do
     end
 
     it "should default the host to 127.0.0.1 and port to 8126" do
-      statsd = Statsd::Admin.new
+      statsd = Statsd::StatsdAdmin.new
       statsd.host.must_equal '127.0.0.1'
       statsd.port.must_equal 8126
     end

@@ -90,7 +90,7 @@ class Statsd
 
   end
 
-  class Admin
+  class StatsdAdmin
     # StatsD host. Defaults to 127.0.0.1.
     attr_reader :host
 
